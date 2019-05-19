@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --watch --jsx react index.tsx && budo index.js",
+    "start": " budo index.tsx --live -- -p [ tsify ] -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
