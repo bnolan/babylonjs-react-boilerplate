@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as ReactDom from 'react-dom'
 import { Control } from 'babylonjs-gui'
 import {
   Engine, FreeCamera, Sphere, Ground, Scene, ArcRotateCamera, HemisphericLight, Plane, AdvancedDynamicTexture, TextBlock, Rectangle, StackPanel, Button, Box, StandardMaterial, VRExperienceHelper
@@ -6,7 +7,7 @@ import {
 
 import { Vector3, Color3, Color4, Animation, ExponentialEase, EasingFunction } from 'babylonjs';
 
-export default class With2DUI extends React.Component <any, any>
+export default class App extends React.Component <any, any>
 {
   // constructor(ctx: any, props: any) {
   //   super(ctx, props);
@@ -131,7 +132,7 @@ export default class With2DUI extends React.Component <any, any>
     let dialogHeight = 1;
 
     return (
-      <Engine canvasId="sample-canvas" antialias width={400} height={300}>
+      <Engine canvasId="sample-canvas" antialias width={800} height={600}>
           <Scene canvas={null} engine={null} scene={null}>
               <FreeCamera
                   name="camera1"
@@ -145,8 +146,8 @@ export default class With2DUI extends React.Component <any, any>
               />
               <Sphere
                   name="sphere1"
-                  diameter={2}
-                  segments={16}
+                  diameter={2.5}
+                  segments={5}
                   position={new Vector3(0, 2, 0)}
               />
               <Ground
@@ -160,3 +161,7 @@ export default class With2DUI extends React.Component <any, any>
     )
   }
 }
+
+const div = document.createElement('div')
+document.body.appendChild(div)
+ReactDom.render(<App />, div)
